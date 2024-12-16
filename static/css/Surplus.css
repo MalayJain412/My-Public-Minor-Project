@@ -1,7 +1,3 @@
-.surplus-management-main-container {
-    padding: 50px;
-}
-
 .unique-surplus-management-container-XYZ123 {
     background: linear-gradient(145deg, #FEF3E2, #FAB12F, #FA812F, #FA4032);
     font-family: Arial, sans-serif;
@@ -133,7 +129,7 @@
     background: #f9f9f9;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .unique-heading-XYZ123 {

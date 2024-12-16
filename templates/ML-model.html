@@ -31,6 +31,7 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/ml-model.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/Surplus.css') }}">
 </head>
 
 <body>
@@ -85,123 +86,126 @@
 	<!-- End banner Area -->
 
 	<!-- Starting ML Model -->
-	<div class="container mt-5 mb-5 lg-4" style="max-width:800px;">
-		<h1 class="text-center mb-5">ML Model Predictions</h1>
-		<form id="predictionForm">
-			<h3>Model 1: Diners Prediction</h3>
-			<div class="form-group">
-				<label>Event Duration (hours)</label>
-				<input type="number" step="any" class="form-control" name="event_duration" required>
-			</div>
-			<div class="form-group">
-				<label>Is it a weekend?</label>
-				<select class="form-control" name="weekend">
-					<option value="Yes">Yes</option>
-					<option value="No">No</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label>Is it a holiday?</label>
-				<select class="form-control" name="holiday">
-					<option value="Yes">Yes</option>
-					<option value="No">No</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label>Weather Condition</label>
-				<select class="form-control" name="weather">
-					<option value="Sunny">Sunny</option>
-					<option value="Rainy">Rainy</option>
-					<option value="Windy">Windy</option>
-					<option value="Cloudy">Cloudy</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label>Location Type</label>
-				<select class="form-control" name="location_type">
-					<option value="Indoor">Indoor</option>
-					<option value="Outdoor">Outdoor</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label>Expected Diners Range (ex: 200-400) </label>
-				<input type="text" class="form-control" name="expected_diners_range" required>
+	<div class="surplus-management-main-container container mt-5 mb-5">
+		<!-- <div class="unique-surplus-management-container-XYZ123"> -->
+		<div class="container mt-5 mb-5 lg-4" style="max-width:800px;">
+			<h1 class="text-center mb-5">Predictive Modelling</h1>
+			<form id="predictionForm">
+				<h3>Model 1: Diners Prediction</h3>
+				<div class="form-group">
+					<label>Event Duration (hours)</label>
+					<input type="number" step="any" class="form-control" name="event_duration" required>
+				</div>
+				<div class="form-group">
+					<label>Is it a weekend?</label>
+					<select class="form-control" name="weekend">
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Is it a holiday?</label>
+					<select class="form-control" name="holiday">
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Weather Condition</label>
+					<select class="form-control" name="weather">
+						<option value="Sunny">Sunny</option>
+						<option value="Rainy">Rainy</option>
+						<option value="Windy">Windy</option>
+						<option value="Cloudy">Cloudy</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Location Type</label>
+					<select class="form-control" name="location_type">
+						<option value="Indoor">Indoor</option>
+						<option value="Outdoor">Outdoor</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Expected Diners Range (ex: 200-400) </label>
+					<input type="text" class="form-control" name="expected_diners_range" required>
+				</div>
+
+				<h3>Model 2: Menu Quantities Prediction</h3>
+				<div class="form-group">
+					<label>Event</label>
+					<select class="form-control" name="event">
+						<option value="0">Breakfast</option>
+						<option value="1">Lunch</option>
+						<option value="3">Snacks</option>
+						<option value="2">Dinner</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Season</label>
+					<select class="form-control" name="season">
+						<option value="1">Winter</option>
+						<option value="0">Summer</option>
+						<option value="2">Rainy</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Time of Day</label>
+					<select class="form-control" name="time_of_day">
+						<option value="0">Morning</option>
+						<option value="1">Day</option>
+						<option value="2">Evening</option>
+						<option value="3">Night</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Menu Items (comma-separated)</label>
+					<input type="text" class="form-control" name="menu_items" required>
+				</div>
+
+				<button type="submit" class="primary-btn">Predict</button>
+			</form>
+
+			<div id="results" style="display: none; margin-top: 20px;">
+				<h3>Predicted Diners:</h3>
+				<p id="predictedDiners" class="highlighted-text mt-3"></p>
+
+				<h3>Scaled Quantities</h3>
+				<table id="scaledQuantitiesTable" class="styled-table mt-3 mb-5">
+					<thead>
+						<tr>
+							<th>Item</th>
+							<th>Quantity</th>
+						</tr>
+					</thead>
+					<tbody id="scaledQuantities"></tbody>
+				</table>
+
+				<h3>Ingredients</h3>
+				<div id="ingredients" class="ingredients-section mt-3 mb-5"></div>
+
+				<h3>Aggregated Ingredients</h3>
+				<table id="aggregatedIngredientsTable" class="styled-table mt-3 mb-5">
+					<thead>
+						<tr>
+							<th>Ingredient</th>
+							<th>Total Quantity</th>
+						</tr>
+					</thead>
+					<tbody id="aggregatedIngredients"></tbody>
+				</table>
+
+				<h3>Repeated Ingredients count:</h3>
+				<p id="repeated_cnt" class="highlighted-text mt-3"></p>
 			</div>
 
-			<h3>Model 2: Menu Quantities Prediction</h3>
-			<div class="form-group">
-				<label>Event</label>
-				<select class="form-control" name="event">
-					<option value="0">Breakfast</option>
-					<option value="1">Lunch</option>
-					<option value="3">Snacks</option>
-					<option value="2">Dinner</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label>Season</label>
-				<select class="form-control" name="season">
-					<option value="1">Winter</option>
-					<option value="0">Summer</option>
-					<option value="2">Rainy</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label>Time of Day</label>
-				<select class="form-control" name="time_of_day">
-					<option value="0">Morning</option>
-					<option value="1">Day</option>
-					<option value="2">Evening</option>
-					<option value="3">Night</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label>Menu Items (comma-separated)</label>
-				<input type="text" class="form-control" name="menu_items" required>
-			</div>
 
-			<button type="submit" class="primary-btn">Predict</button>
-		</form>
+			<div id="error" style="color: red; display: none;"></div>
 
-		<div id="results" style="display: none; margin-top: 20px;">
-			<h3>Predicted Diners:</h3>
-			<p id="predictedDiners" class="highlighted-text mt-3"></p>
 
-			<h3>Scaled Quantities</h3>
-			<table id="scaledQuantitiesTable" class="styled-table mt-3 mb-5">
-				<thead>
-					<tr>
-						<th>Item</th>
-						<th>Quantity</th>
-					</tr>
-				</thead>
-				<tbody id="scaledQuantities"></tbody>
-			</table>
-
-			<h3>Ingredients</h3>
-			<div id="ingredients" class="ingredients-section mt-3 mb-5"></div>
-
-			<h3>Aggregated Ingredients</h3>
-			<table id="aggregatedIngredientsTable" class="styled-table mt-3 mb-5">
-				<thead>
-					<tr>
-						<th>Ingredient</th>
-						<th>Total Quantity</th>
-					</tr>
-				</thead>
-				<tbody id="aggregatedIngredients"></tbody>
-			</table>
-
-			<h3>Repeated Ingredients count:</h3>
-			<p id="repeated_cnt" class="highlighted-text mt-3"></p>
 		</div>
-
-		
-		<div id="error" style="color: red; display: none;"></div>
-
-
 	</div>
-
+	<!-- </div> -->
 	<!-- Ending of ML model -->
 
 	<!-- Footer Starts here. -->
@@ -293,7 +297,7 @@
 	<script src="{{ url_for('static', filename='js/vendor/jquery-2.2.4.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key="></script> -->
 	<script src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/easing.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/hoverIntent.js') }}"></script>
