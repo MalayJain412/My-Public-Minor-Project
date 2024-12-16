@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <title>Morph</title>
+
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/icon.png') }}">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/nucleo/css/nucleo.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css">
+
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/linearicons.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/revenue-add.css') }}">
+  
+</head>
+
+
+<body>
+  <!-- Sidenav -->
+
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+
+    <header id="header">
+      <div class="header-top">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div id="logo">
+              <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="" title="" style="width: 220px; height: 85px;" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container main-menu">
+        <div class="row align-items-center justify-content-center d-flex">
+          <nav id="nav-menu-container">
+            <ul class="nav-menu">
+              <li><a href="{{ url_for('index') }}">Home</a></li>
+              <li><a href="{{ url_for('about') }}">About</a></li>
+              <li><a href="{{ url_for('ml_model') }}">ML Model</a></li>
+              <li><a href="{{ url_for('surplus_management') }}">Surplus Management</a></li>
+              <li><a href="{{ url_for('help') }}">Help</a></li>
+              <li class="menu-has-children"><a href="">Profile</a>
+                <ul>
+                  <li><a href="{{ url_for('profile') }}">My Profile</a></li>
+                  <li><a href="{{ url_for('dashboard') }}">Profile Dashboard</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header><!-- #header -->
+
+    <section class="banner-area relative" id="home">
+      <div class="overlay overlay-bg"></div>
+      <div class="container" style="margin-bottom: 50px;">
+        <div class="row d-flex align-items-center justify-content-center">
+          <div class="about-content blog-header-content col-lg-12 text-center">
+            <div class="profile-image-container">
+              <img id="profileImage" src="{{ url_for('static', filename='img/user1.jpg') }}" alt="Profile Image" class="rounded-circle">
+              <div class="overlay">
+                <label for="fileInput" class="upload-label">Update Profile Image</label>
+                <input type="file" id="fileInput" class="d-none">
+              </div>
+            </div>
+            <h1 class="text-white">Aniket Kumar Mishra</h1>
+            <!-- <button class="primary-btn" data-bs-toggle="modal" data-bs-target="#transactionModal" style="margin-top: 30px;">Add Transaction</button> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+        <div class="col-xl-4 order-xl-2">
+          <div class="card card-profile">
+            <img src="{{ url_for('static', filename='img/theme/img-1-1000x600.jpg') }}" alt="Image placeholder" class="card-img-top">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                    <img src="{{ url_for('static', filename='img/user1.jpg') }}" class="rounded-circle">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+              <div class="d-flex justify-content-between">
+                <a href="#" class="btn btn-sm btn-info  mr-4 ">Connections</a>
+                <a href="#" class="btn btn-sm btn-default float-right">Any Request</a>
+              </div>
+            </div>
+            <div class="card-body pt-0">
+              <div class="row">
+                <div class="col">
+                  <div class="card-profile-stats d-flex justify-content-center">
+                    <div>
+                      <span class="heading">22</span>
+                      <span class="description">NGOs</span>
+                    </div>
+                    <div>
+                      <span class="heading">10</span>
+                      <span class="description">charities</span>
+                    </div>
+                    <div>
+                      <span class="heading">89</span>
+                      <span class="description">Feedbacks</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <h5 class="h3">
+                  Aniket Kumar Mishra<span class="font-weight-light">, 21</span>
+                </h5>
+                <div class="h5 font-weight-300">
+                  <i class="ni location_pin mr-2"></i>Ayodhya Bypass, Bhopal
+                </div>
+                <div class="h5 mt-4">
+                  <i class="ni business_briefcase-24 mr-2"></i>Catering Services 
+                </div>
+                <div>
+                  <i class="ni education_hat mr-2"></i>- Management Lead
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Progress track -->
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header">
+              <!-- Title -->
+              <h5 class="h3 mb-0">Feedback track</h5>
+            </div>
+            <!-- Card body -->
+            <div class="card-body">
+              <!-- List group -->
+              <ul class="list-group list-group-flush list my--3">
+                <li class="list-group-item px-0">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+
+                      <i class="fa fa-arrow-up"></i>
+                    </div>
+                    <div class="col">
+                      <h5>Hygeinic</h5>
+                      <div class="progress progress-xs mb-0">
+                        <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 60%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item px-0">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+  
+                      <i class="fa fa-heart-o"></i>
+                    </div>
+                    <div class="col">
+                      <h5>Food Quantity</h5>
+                      <div class="progress progress-xs mb-0">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item px-0">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+  
+                      <i class="fa fa-star"></i>
+                    </div>
+                    <div class="col">
+                      <h5>Delivery On Time</h5>
+                      <div class="progress progress-xs mb-0">
+                        <div class="progress-bar bg-red" role="progressbar" aria-valuenow="72" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 72%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item px-0">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <i class="fa fa-recycle"></i>
+                    </div>
+                    <div class="col">
+                      <h5>Packaging</h5>
+                      <div class="progress progress-xs mb-0">
+                        <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 90%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item px-0">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+
+                      <i class="fa fa-cogs"></i>
+                    </div>
+                    <div class="col">
+                      <h5>Cost Effective</h5>
+                      <div class="progress progress-xs mb-0">
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8 order-xl-1">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card bg-gradient-info border-0">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0 text-white">Total Revenue in Rupees</h5>
+                      <span class="h2 font-weight-bold mb-0 text-white">3,50,897</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
+                        <i class="ni ni-active-40"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-nowrap text-light">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card bg-gradient-danger border-0">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0 text-white">Total Profit</h5>
+                      <span class="h2 font-weight-bold mb-0 text-white">2,50,795</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
+                        <i class="ni ni-spaceship"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> 2.49%</span>
+                    <span class="text-nowrap text-light">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">Add Transaction </h3>
+                </div>
+                <div class="col-4 text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">Edit Profile</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form>
+                <h6 class="heading-small text-muted mb-4">Customer's information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Contact No.</label>
+                        <input type="number" id="phone-number" class="form-control" placeholder="Contact Number">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">Email address</label>
+                        <input type="email" id="input-email" class="form-control" placeholder="xyz@example.com">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-first-name">First name</label>
+                        <input type="text" id="input-first-name" class="form-control" placeholder="First name"
+                          value="Malay">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-last-name">Last name</label>
+                        <input type="text" id="input-last-name" class="form-control" placeholder="Last name"
+                          value="Jain">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4" />
+                <!-- Address -->
+                <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-address">Address</label>
+                        <input id="input-address" class="form-control" placeholder="Home Address"
+                          type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-city">City</label>
+                        <input type="text" id="input-city" class="form-control" placeholder="City" value="Bhopal">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country">Country</label>
+                        <input type="text" id="input-country" class="form-control" placeholder="Country"
+                          value="India">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country">Postal code</label>
+                        <input type="number" id="input-postal-code" class="form-control" placeholder="Postal code">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4" />
+                <!-- Description -->
+                <h6 class="heading-small text-muted mb-4">Payment Information</h6>
+                <div class="col-lg-7">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-country">Payment Done by the Customer</label>
+                    <input type="number" id="add-revenue" class="form-control" placeholder="Added into wallet">
+                  </div>
+                </div>
+                <div class="col-lg-7">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-country">Amount debited for Ingredients</label>
+                    <input type="number" id="subtract-revenue" class="form-control" placeholder="removed from wallet">
+                  </div>
+                </div>
+              </form>
+              <button class="primary-btn" style="border-radius: 10px; margin-top: 30px; ">Sumbit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- Footer -->
+      <footer class="footer-area">
+        <div class="footer-widget-wrap" style="background-color: rgb(164, 55, 55);">
+          <div class="container">
+            <div class="row section-gap">
+              <div class="col-lg-4  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                  <h4>Calling Hours</h4>
+                  <ul class="hr-list">
+                    <li class="d-flex justify-content-between">
+                      <span>Monday - Friday</span> <span>08:00 am - 10:00 pm</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <span>Saturday</span> <span>10:00 am - 08:00 pm</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <span>Sunday</span> <span>Contact Physically</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-4  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                  <h4>Contact Us</h4>
+                  <p>
+                    Ayodhya Bypass Rd, Opposite, K-Sector, Minal Residency, Bhopal, Madhya Pradesh 462041
+                  </p>
+                  <p class="number">
+                    077730 08592 <br>
+                    077730 08591
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-4  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                  <h4>Send Your Email</h4>
+                  <p>You can trust us. we only send promo offers, not a single spam.</p>
+                  <div class="d-flex flex-row" id="mc_embed_signup">
+
+
+                    <form class="navbar-form"
+                      action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                      method="get">
+                      <div class="input-group add-on align-items-center d-flex">
+                        <input class="form-control" name="EMAIL" placeholder="Your Email address"
+                          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email address'" required=""
+                          type="email">
+                        <div style="position: absolute; left: -5000px;">
+                          <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                        </div>
+                        <div class="input-group-btn">
+                          <button class="genric-btn"><span class="lnr lnr-arrow-right"></span></button>
+                        </div>
+                      </div>
+                      <div class="info mt-20"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom-wrap">
+          <div class="container">
+            <div class="row footer-bottom d-flex justify-content-between align-items-center">
+              <p class="col-lg-8 col-mdcol-sm-6 -6 footer-text m-0">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i
+                  class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">Developers</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </p>
+              <ul class="col-lg-4 col-mdcol-sm-6 -6 social-icons text-right">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-github"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="{{ url_for('static', filename='vendor/jquery/dist/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/js-cookie/js.cookie.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
+  <!-- Argon JS -->
+  <script src="{{ url_for('static', filename='js/dashboard.js?v=1.2.0') }}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  <!-- Demo JS - remove this in your project -->
+  <script src="{{ url_for('static', filename='js/demo.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/vendor/jquery-2.2.4.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/hoverIntent.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/superfish.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.nice-select.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/mail-script.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/revenue-add.js') }}"></script>
+</body>
+
+</html>

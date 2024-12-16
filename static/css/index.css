@@ -1,0 +1,67 @@
+/* Feature Card Styling */
+.feature-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+    border-radius: 15px;
+    transform: scale(1.05) translateX(10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Colors for Different Cards */
+.feature-card:nth-child(1) .card-body {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: #fff;
+}
+
+.feature-card:nth-child(2) .card-body {
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    color: #fff;
+}
+
+.feature-card:nth-child(3) .card-body {
+    background: linear-gradient(to right, #f7971e, #ffd200);
+    color: #fff;
+}
+
+/* Smooth Hover Effect */
+.card-body h5 {
+    transition: color 0.3s;
+    font-size: 20px;
+}
+
+.card-body:hover h5 {
+    color: #222;
+}
+
+.card-body p {
+    transition: color 0.3s;
+}
+
+.card-body:hover p {
+    color: #333;
+    font-size: 15px;
+}
+
+.card-body{
+    border-radius: 10px;
+    width: 300px;
+}
+
+.platform-approach-section {
+    background: linear-gradient(45deg, #f8a6a6 50%, #f9f9f9 50%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Content Alignment */
+.platform-approach-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}

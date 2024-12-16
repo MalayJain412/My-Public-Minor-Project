@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
+    <title>Morph</title>
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/icon.png') }}">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css">
+
+
+    <!-- Front CSS -->
+    <link type="text/css" href="{{ url_for('static', filename='css/front.css') }}" rel="stylesheet">
+
+
+    <!-- Argon CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/linearicons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+
+
+<body>
+    <!-- Topnav -->
+    <header id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div id="logo">
+                        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="" title="" style="width: 220px; height: 85px;" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container main-menu">
+            <div class="row align-items-center justify-content-center d-flex">
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('ml_model') }}">ML Model</a></li>
+                        <li><a href="{{ url_for('surplus_management') }}">Surplus Management</a></li>
+                        <li><a href="{{ url_for('help') }}">Help</a></li>
+                        <li class="menu-has-children"><a href="">Profile</a>
+                            <ul>
+                                <li><a href="{{ url_for('profile') }}">My Profile</a></li>
+                                <li><a href="{{ url_for('dashboard') }}">Profile Dashboard</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- #header -->
+    <!-- <div class="main-content" id="panel"></div> -->
+    <section class="banner-area relative" id="home">
+        <div class="overlay overlay-bg"></div>
+        <div class="container" style="margin-bottom: 50px;">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content blog-header-content col-lg-12 text-center">
+                    <div class="row justify-content-center mb-6">
+                        <div class="col-12 col-md-10 text-left text-white">
+                            <h1 class="display-2 mb-4">Our pricing plan made simple</h1>
+                            <p class="lead px-5">Get access to <span class="font-weight-bold">one</span> predicting
+                                Model,
+                                <span class="">and one surplus management system</span> and <span class="">one</span>
+                                personalized dashboard profile
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page content -->
+    <section class="section-header text-white pb-7 pb-lg-11">
+        <div class="row text-gray align-items-center ml-8">
+            <div class="col-6 col-lg-4 align-items-center" >
+                <!-- Card -->
+                <div class="card shadow-soft mb-5 mb-lg-6 px-2">
+                    <div class="card-header border-light py-5 px-4">
+                        <!-- Price -->
+                        <div class="d-flex mb-3">
+                            <span class="h5 mb-0">$</span>
+                            <span class="price display-2 mb-0" data-annual="0" data-monthly="0">0</span>
+                            <span class="h6 font-weight-normal align-self-end">/month</span>
+                        </div>
+                        <h4 class="mb-3 text-black">Free trial</h4>
+                        <p class="font-weight-normal mb-0">If you're new to SEO or just need the basics, this
+                            plan is a great way.</p>
+                    </div>
+                    <div class="card-body pt-5">
+                        <ul class="list-group simple-list">
+                            <li class="list-group-item font-weight-normal"><span class="icon-gray"><i
+                                        class="fa fa-check"></i></span>Users<span class="font-weight-bolder">
+                                    1</span></li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-gray"><i
+                                        class="fas fa-check"></i></span>Full access to design tool</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-gray"><i
+                                        class="fas fa-check"></i></span>Publish with <span
+                                    class="font-weight-bolder">Impact</span> &reg; label</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-gray"><i
+                                        class="fas fa-check"></i></span>Sub-domain publish</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-gray"><i
+                                        class="fas fa-check"></i></span>1 User</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-gray"><i
+                                        class="fas fa-check"></i></span>Public Share & Comments</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-gray"><i
+                                        class="fas fa-check"></i></span>Chat Support</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer px-4 pb-4">
+                        <!-- Button -->
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-block btn-outline-gray animate-up-2">
+                            Start for Free <span class="icon icon-xs ml-3"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <!-- Card -->
+                <div class="card shadow-soft mb-5 mb-lg-6">
+                    <div class="card-header border-light py-5 px-4">
+                        <!-- Price -->
+                        <div class="d-flex mb-3 text-primary">
+                            <span class="h5 mb-0">$</span>
+                            <span class="price display-2 text-primary mb-0" data-annual="199"
+                                data-monthly="99">199</span>
+                            <span class="h6 font-weight-normal align-self-end">/month</span>
+                        </div>
+                        <h4 class="mb-3 text-black">Standard</h4>
+                        <p class="font-weight-normal mb-0">Ample limits plus full access to keyword research
+                            tools. Most folks start here.</p>
+                    </div>
+                    <div class="card-body pt-5">
+                        <ul class="list-group simple-list">
+                            <li class="list-group-item font-weight-normal"><span class="icon-primary"><i
+                                        class="fas fa-check"></i></span>Users<span class="font-weight-bolder">
+                                    3</span></li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-primary"><i
+                                        class="fas fa-check"></i></span>All features on <span
+                                    class="font-weight-bolder">FREE</span> plan</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-primary"><i
+                                        class="fas fa-check"></i></span>Hide <span
+                                    class="font-weight-bolder">Impact</span> &reg; label</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-primary"><i
+                                        class="fas fa-check"></i></span>All apps</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-primary"><i
+                                        class="fas fa-check"></i></span>Connect to custom domain</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-primary"><i
+                                        class="fas fa-check"></i></span>3rd party service integrations</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-primary"><i
+                                        class="fas fa-check"></i></span>Unlimited editable exports</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer px-4 pb-4">
+                        <!-- Button -->
+                        <a href="#" class="btn btn-block btn-outline-primary">
+                            Go to Standard<span class="icon icon-xs ml-3"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <!-- Card -->
+                <div class="card shadow-soft border-light mb-5 mb-lg-6">
+                    <div class="card-header border-light py-5 px-4">
+                        <!-- Price -->
+                        <div class="d-flex mb-3">
+                            <span class="h5 mb-0">$</span>
+                            <span class="price display-2 text-secondary mb-0" data-annual="299"
+                                data-monthly="199">299</span>
+                            <span class="h6 font-weight-normal align-self-end">/month</span>
+                        </div>
+                        <h4 class="mb-3 text-black">Premium</h4>
+                        <p class="font-weight-normal mb-0">The ideal plan for businesses and agencies that are
+                            serious about search.</p>
+                    </div>
+                    <div class="card-body pt-5">
+                        <ul class="list-group simple-list">
+                            <li class="list-group-item font-weight-normal"><span class="icon-secondary"><i
+                                        class="fas fa-check"></i></span>Users<span class="font-weight-bolder">
+                                    5</span></li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-secondary"><i
+                                        class="fas fa-check"></i></span>All features on <span
+                                    class="font-weight-bolder">BASIC</span> plan</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-secondary"><i
+                                        class="fas fa-check"></i></span>Content Management System</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-secondary"><i
+                                        class="fas fa-check"></i></span>Premium Analytics</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-secondary"><i
+                                        class="fas fa-check"></i></span>Version Control</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-secondary"><i
+                                        class="fas fa-check"></i></span>Single Sign-On (SSO)</li>
+                            <li class="list-group-item font-weight-normal"><span class="icon-secondary"><i
+                                        class="fas fa-check"></i></span>Co-conception program</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer px-4 pb-4">
+                        <!-- Button -->
+                        <a href="#" class="btn btn-block btn-outline-secondary">
+                            Start with Pro<span class="icon icon-xs ml-3"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col col-md-10 text-center">
+                <h2 class="mb-3">Still not convinced? Start with a 3-day FREE trial!</h2>
+                <p class="lead mb-5 px-5">You will get full access to your Dashboard with all the features for 3
+                    days.</p>
+                <!-- Button -->
+                <a href="{{ url_for('dashboard') }}" target="_blank" class="btn btn-secondary animate-up-2">
+                    Start a free demo<span class="icon icon-xs ml-3"><i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+        <div class="pattern bottom"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-area">
+        <div class="footer-widget-wrap" style="background-color: rgb(164, 55, 55);">
+            <div class="container">
+                <div class="row section-gap">
+                    <div class="col-lg-4  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>Calling Hours</h4>
+                            <ul class="hr-list">
+                                <li class="d-flex justify-content-between">
+                                    <span>Monday - Friday</span> <span>08:00 am - 10:00 pm</span>
+                                </li>
+                                <li class="d-flex justify-content-between">
+                                    <span>Saturday</span> <span>10:00 am - 08:00 pm</span>
+                                </li>
+                                <li class="d-flex justify-content-between">
+                                    <span>Sunday</span> <span>Contact Physically</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>Contact Us</h4>
+                            <p>
+                                Ayodhya Bypass Rd, Opposite, K-Sector, Minal Residency, Bhopal, Madhya Pradesh
+                                462041
+                            </p>
+                            <p class="number">
+                                077730 08592 <br>
+                                077730 08591
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>Send Your Email</h4>
+                            <p>You can trust us. we only send promo offers, not a single spam.</p>
+                            <div class="d-flex flex-row" id="mc_embed_signup">
+
+
+                                <form class="navbar-form"
+                                    action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                    method="get">
+                                    <div class="input-group add-on align-items-center d-flex">
+                                        <input class="form-control" name="EMAIL" placeholder="Your Email address"
+                                            onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = 'Your Email address'" required="" type="email">
+                                        <div style="position: absolute; left: -5000px;">
+                                            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+                                                type="text">
+                                        </div>
+                                        <div class="input-group-btn">
+                                            <button class="genric-btn"><span
+                                                    class="lnr lnr-arrow-right"></span></button>
+                                        </div>
+                                    </div>
+                                    <div class="info mt-20"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-wrap">
+            <div class="container">
+                <div class="row footer-bottom d-flex justify-content-between align-items-center">
+                    <p class="col-lg-8 col-mdcol-sm-6 -6 footer-text m-0">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | Made with
+                        <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">Developers</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                    <ul class="col-lg-4 col-mdcol-sm-6 -6 social-icons text-right">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/vendor/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/hoverIntent.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/superfish.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/mail-script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+/* General table styling */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+/* Highlighted text for predicted diners */
+.highlighted-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Ingredients section styling */
+.ingredients-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.ingredient-item {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(50% - 10px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ingredient-item strong {
+    font-size: 16px;
+    color: #009879;
+}
+
+.ingredient-item ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.ingredient-item ul li {
+    margin-bottom: 5px;
+}

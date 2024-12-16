@@ -1,0 +1,211 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.home-about-area {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Prevent content overflow */
+    background: #f4f4f4; /* Light background */
+}
+
+/* Animated Section */
+.animated-section {
+    transform: translateX(-100%); /* Start off-screen to the left */
+    opacity: 0.2; /* Low opacity initially */
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+/* Fully in View (Centered) */
+.animated-section.center {
+    transform: translateX(0); /* Centered */
+    opacity: 1; /* Full opacity */
+}
+
+/* Move Off to the Right */
+.animated-section.right {
+    transform: translateX(100%); /* Off-screen to the right */
+    opacity: 0.2; /* Low opacity */
+}
+
+/* Button Styling (Optional) */
+.primary-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    /* background-color: #007bff; */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* General Styling */
+/*
+body {
+    font-family: 'Poppins';
+    /* font-size: 10px; 
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll 
+}
+*/
+.platform-approach-section {
+    background: linear-gradient(135deg, #f9f9f9 50%, #ff9898 50%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Content Alignment */
+.platform-approach-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Text Column */
+.approach-description-container {
+    max-width: 500px;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.8s ease-in-out;
+}
+
+.approach-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.approach-explanation {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.approach-list {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.approach-list li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.approach-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #4caf50;
+    font-size: 1.2rem;
+}
+
+/* Image Column */
+.approach-image-container {
+    text-align: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.8s ease-in-out;
+}
+
+.approach-illustration {
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styling */
+.primary-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color:#f9457e ;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.primary-btn:hover {
+    background-color: #c52a51;
+    transform: scale(1.05);
+}
+
+/* Animation States */
+.slide-in-from-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.slide-in-from-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Default state: offscreen with low opacity */
+.approach-description-container,
+.approach-image-container {
+    opacity: 0;
+    transform: translateX(-200px); /* Left column starts offscreen */
+    transition: all 0.8s ease-in-out;
+}
+
+/* Right container offscreen default */
+.approach-image-container {
+    transform: translateX(200px);
+}
+
+/* Slide to center with full opacity */
+.approach-description-container.visible-center,
+.approach-image-container.visible-center {
+    opacity: 1;
+    transform: translateX(0); /* Center alignment */
+}
+
+/* Move outwards with decreasing opacity */
+.approach-description-container.move-outwards {
+    opacity: 0;
+    transform: translateX(-300px); /* Moves further left */
+}
+
+.approach-image-container.move-outwards {
+    opacity: 0;
+    transform: translateX(300px); /* Moves further right */
+}
+
+.single-review img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image fills the circle */
+    display: block;
+    margin: 0 auto; /* Centers the image */
+}
+
+
+.about-img-class{
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+}

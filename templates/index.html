@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/icon.png') }}">
+    <meta name="author" content="colorlib">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta charset="UTF-8">
+    <title>Morph</title>
+
+    <!-- Front CSS -->
+    <link type="text/css" href="{{ url_for('static', filename='css/front.css') }}" rel="stylesheet">
+
+    <link rel="manifest" href="{{ url_for('static', filename='img/favicon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='img/favicon/safari-pinned-tab.svg') }}" color="#ffffff">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/linearicons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+    <header id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div id="logo">
+                        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="" title="" style="width: 220px; height: 85px;" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container main-menu">
+            <div class="row align-items-center justify-content-center d-flex">
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('ml_model') }}">ML Model</a></li>
+                        <li><a href="{{ url_for('surplus_management') }}">Surplus Management</a></li>
+                        <li><a href="{{ url_for('help') }}">Help</a></li>
+                        <li class="menu-has-children"><a href="">Profile</a>
+                            <ul>
+                                <li><a href="{{ url_for('profile') }}">My Profile</a></li>
+                                <li><a href="{{ url_for('dashboard') }}">Profile Dashboard</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- start banner Area -->
+    <section class="banner-area">
+        <div class="container">
+            <div class="row fullscreen align-items-center justify-content-between ">
+                <div class="col-lg-12 banner-content">
+                    <h4 class="text-white">"Save That Gravy!"</h4>
+                    <h1 class="text-white">Reduce Food Waste</h1>
+                    <p class="text-white">
+                        Food waste can have a negative impact on the environment, contributing to climate change and
+                        putting strain on natural resources. Reducing food waste can help save money on waste
+                        collection, and can also help businesses and individuals realize cost savings.
+                    </p>
+                    <a href="{{ url_for('pricing') }}" class="primary-btn text-uppercase">Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End banner Area -->
+
+    <section class="section section-lg pt-0" style="background-color: rgb(255, 254, 254);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="display-2 text-center mb-5 mb-lg-7" style="font-size: 50px; margin-top: 50px;">What you
+                        get?</h4>
+                </div>
+            </div>
+            <div class="row justify-content-between align-items-center mb-5 mb-lg-7">
+                <div class="col-lg-5 order-lg-2">
+                    <h2 class="h1">Easy Management</h2>
+                    <p class="lead mb-4">4 hand-crafted amazing features of catering serviecs.</p>
+                    <p class="mb-5">Showcase your startup with the new teachnology with AI and Easy management process.
+                        With a lot of
+                        care we developed one of the best algorithm for the prediction of diners and ingredient listing.
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center mt-lg-4 mb-4">
+                        <div class="d-block">
+                            <a href="{{ url_for('ml_model') }}" class="btn primary-btn mr-3 animate-up-2 mb-3">Prediction
+                                Model</a>
+                            <a href="#" class="btn btn-outline-gray animate-up-2 mb-3"><i
+                                    class="fa fa-th-large mr-2"></i>
+                                Register</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <img src="{{ url_for('static', filename='img/presentation-mockup-2.jpg') }}" alt="Front pages overview">
+                </div>
+            </div>
+            <div class="row justify-content-center mb-5 mb-lg-7">
+                <div class="col-6 col-md-3 text-center mb-4">
+                    <div
+                        class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                        <i class="fa fa-heart-o"></i>
+                    </div>
+                    <h3 class="font-weight-bolder">ML</h3>
+                    <p class="text-gray">Prediction Model</p>
+                </div>
+                <div class="col-6 col-md-3 text-center mb-4">
+                    <div
+                        class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                        <i class="fa fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="font-weight-bolder">Statistical</h3>
+                    <p class="text-gray">Mathematical Model</p>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <div
+                        class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <h3 class="font-weight-bolder">Workflow</h3>
+                    <p class="text-gray">Sass</p>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <div
+                        class="icon icon-shape icon-lg bg-white shadow-lg border-light rounded-circle icon-secondary mb-4">
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <h3 class="font-weight-bolder">Profile</h3>
+                    <p class="text-gray">Dashboard</p>
+                </div>
+            </div>
+            <div class="row justify-content-between align-items-center mb-5 mb-lg-7">
+                <div class="col-lg-5">
+                    <h2 class="h1">Dashboard</h2>
+                    <p class="lead mb-4">Complete Data Visualization</p>
+                    <p class="mb-5">Start your Cartering Servies with an amazing dashboard, giving you the complete
+                        Visualization of you Transactions. All components can take variations
+                        in data, that you can easily modify using DataBase connectivity.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-lg-4 mb-4">
+                        <div class="d-block">
+                            <a href="{{ url_for('dashboard') }}"
+                                class="btn primary-btn mr-3 animate-up-2 mb-3">Dashboard demo</a>
+                            <a href="#" class="btn btn-outline-gray animate-up-2 mb-3"><i
+                                    class="fa fa-th-large mr-2"></i>
+                                Register</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{ url_for('static', filename='img/presentation-mockup-3.jpg') }}" alt="Dashboard Preview">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- How It Works Section -->
+    <section class="how-it-works py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">How It Works</h2>
+            <div class="row" style="margin-top: 80px;">
+                <div class="col-md-3 mb-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="step">
+                        <div class="icon">
+                            <i class="fa fa-cogs"></i>
+                        </div>
+                        <h5 class="step-title">Step 1</h5>
+                        <p>Data Collection: Gather historical meal consumption data, event calendars, and student
+                            preferences.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="step">
+                        <div class="icon">
+                            <i class="fa fa-cogs"></i>
+                        </div>
+                        <h5 class="step-title">Step 2</h5>
+                        <p>Model Training: Train machine learning models to predict daily meal requirements.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="step">
+                        <div class="icon">
+                            <i class="fa fa-recycle"></i>
+                        </div>
+                        <h5 class="step-title">Step 3</h5>
+                        <p>Implementation: Use predictions to guide meal preparation and ingredient purchasing.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 wow fadeInUp" data-wow-delay="0.8s">
+                    <div class="step">
+                        <div class="icon">
+                            <i class="fa fa-recycle"></i>
+                        </div>
+                        <h5 class="step-title">Step 4</h5>
+                        <p>Surplus Management: Manage and redistribute surplus food to minimize waste.</p>
+                    </div>
+                </div>
+                <div class="col-lg-12 align-items-center">
+                    <img src="{{ url_for('static', filename='img/working.png') }}" alt="Dashboard Preview">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="platform-approach-section" style="background-color: rgb(232, 232, 232);">
+        <div class="platform-approach-content">
+            <div class="container">
+                <div class="row justify-content-center mb-5 mb-lg-6">
+                    <div class="col-12 text-center">
+                        <h2 class="h1 px-lg-5">Awesome Features</h2>
+                        <p class="lead px-lg-8">You get all Servies fully personalized and Our Servies interface is user
+                            friendly</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft  rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center" >
+                                <span class="icon icon-lg mb-4"  style="color: rgb(255, 60, 60);"><i class="fa fa-check-circle"></i></span>
+                                <h4 class="font-weight-normal " >User friendly</h4>
+                                <p>Easy to use</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft  rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"   style="color: rgb(255, 60, 60);"><i class="fa fa-check-circle"></i></span>
+                                <h4 class="font-weight-normal ">Sass</h4>
+                                <p>Software as a Servies</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft  rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"   style="color: rgb(255, 60, 60);"><i class="fa fa-check-circle"></i></span>
+                                <h5 class="font-weight-normal ">Responsive</h5>
+                                <p>100% responsive</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft  rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"   style="color: rgb(255, 60, 60);"><i class="fa fa-check-circle"></i></span>
+                                <h4 class="font-weight-normal ">ML</h4>
+                                <p>Prediction Model</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft  rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"   style="color: rgb(255, 60, 60);"><i class="fa fa-check-circle"></i></span>
+                                <h4 class="font-weight-normal ">Statistical</h4>
+                                <p>Mathematical Model/p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft  rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"   style="color: rgb(255, 60, 60);"><i class="fa fa-check-circle"></i></span>
+                                <h4 class="font-weight-normal ">Documentation</h4>
+                                <p>Well documented</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft  rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"   style="color: rgb(255, 60, 60);"><i class="fa fa-check-circle"></i></span>
+                                <h4 class="font-weight-normal ">Premium Dashboard</h4>
+                                <p>For Data Visualization</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft  rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <span class="icon icon-lg mb-4"   style="color: rgb(255, 60, 60);"><i class="fa fa-check-circle"></i></span>
+                                <h4 class="font-weight-normal ">Management</h4>
+                                <p>As Surplus Management</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer Starts here. -->
+    <footer class="footer-area">
+        <div class="footer-widget-wrap" style="background-color: rgb(164, 55, 55);">
+            <div class="container">
+                <div class="row section-gap">
+                    <div class="col-lg-4  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>Calling Hours</h4>
+                            <ul class="hr-list">
+                                <li class="d-flex justify-content-between">
+                                    <span>Monday - Friday</span> <span>08:00 am - 10:00 pm</span>
+                                </li>
+                                <li class="d-flex justify-content-between">
+                                    <span>Saturday</span> <span>10:00 am - 08:00 pm</span>
+                                </li>
+                                <li class="d-flex justify-content-between">
+                                    <span>Sunday</span> <span>Contact Physically</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>Contact Us</h4>
+                            <p>
+                                Ayodhya Bypass Rd, Opposite, K-Sector, Minal Residency, Bhopal, Madhya Pradesh 462041
+                            </p>
+                            <p class="number">
+                                077730 08592 <br>
+                                077730 08591
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4>Send Your Email</h4>
+                            <p>You can trust us. we only send promo offers, not a single spam.</p>
+                            <div class="d-flex flex-row" id="mc_embed_signup">
+
+
+                                <form class="navbar-form"
+                                    action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                    method="get">
+                                    <div class="input-group add-on align-items-center d-flex">
+                                        <input class="form-control" name="EMAIL" placeholder="Your Email address"
+                                            onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = 'Your Email address'" required="" type="email">
+                                        <div style="position: absolute; left: -5000px;">
+                                            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+                                                type="text">
+                                        </div>
+                                        <div class="input-group-btn">
+                                            <button class="genric-btn"><span
+                                                    class="lnr lnr-arrow-right"></span></button>
+                                        </div>
+                                    </div>
+                                    <div class="info mt-20"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-wrap">
+            <div class="container">
+                <div class="row footer-bottom d-flex justify-content-between align-items-center">
+                    <p class="col-lg-8 col-mdcol-sm-6 -6 footer-text m-0">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i
+                            class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">Developers</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                    <ul class="col-lg-4 col-mdcol-sm-6 -6 social-icons text-right">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer Area -->
+    <script src="{{ url_for('static', filename='js/vendor/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/hoverIntent.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/superfish.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/mail-script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+    <!-- Impact JS -->
+    <script src="{{ url_for('static', filename='js/front.js') }}"></script>
+
+
+</body>
+
+</html>

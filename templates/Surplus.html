@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="{{ url_for('static', filename='img/icon.png') }}">
+	<!-- Author Meta -->
+	<meta name="author" content="colorlib">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Morph</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+	<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/linearicons.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/Surplus.css') }}">
+</head>
+
+<body>
+	<header id="header">
+		<div class="header-top">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div id="logo">
+						<a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="" title="" style="width: 220px; height: 85px;" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container main-menu">
+			<div class="row align-items-center justify-content-center d-flex">
+				<nav id="nav-menu-container">
+					<ul class="nav-menu">
+						<li><a href="{{ url_for('index') }}">Home</a></li>
+						<li><a href="{{ url_for('about') }}">About</a></li>
+						<li><a href="{{ url_for('ml_model') }}">ML Model</a></li>
+						<li><a href="{{ url_for('surplus_management') }}">Surplus Management</a></li>
+						<li><a href="{{ url_for('help') }}">Help</a></li>
+						<li class="menu-has-children"><a href="">Profile</a>
+							<ul>
+								<li><a href="{{ url_for('profile') }}">My Profile</a></li>
+								<li><a href="{{ url_for('dashboard') }}">Profile Dashboard</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header><!-- #header -->
+
+	<!-- start banner Area -->
+	<section class="about-banner relative">
+		<div class="overlay overlay-bg"></div>
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<h1 class="text-white">
+						Surplus
+					</h1>
+					<p class="text-white link-nav"><a href="{{ url_for('index') }}">Home </a> <span
+							class="lnr lnr-arrow-right"></span> <a href="{{ url_for('surplus_management') }}"> Surplus</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+
+	<!-- Start main content Area -->
+	<div class="surplus-management-main-container container">
+		<div class="unique-surplus-management-container-XYZ123">
+			<h1 class="unique-heading-XYZ123">Surplus Management 🍲</h1>
+			<form id="surplus-form" class="unique-surplus-form-XYZ123">
+				<div class="unique-dropdown-container-XYZ123 form-group">
+					<label for="quantity" class="unique-label-XYZ123">Enter Number of Surplus Items:</label>
+					<input type="number" name="quantity" id="quantity" class="unique-select-XYZ123 form-control"
+						placeholder="Enter number of items">
+				</div>
+				<button type="button" class="btn btn-success unique-continue-button-XYZ123 mt-2">Continue</button>
+				<div id="input-cards-container" class="unique-input-cards-container-XYZ123 mt-4 d-flex flex-wrap">
+					<p>Currently no item is added!!!</p>
+				</div>
+				<button type="submit" class="btn btn-success unique-submit-button-XYZ123 mt-4">Submit</button>
+			</form>
+			<div id="surplus-results" class="unique-surplus-results-XYZ123 mt-4">
+				<h2 class="unique-subheading-XYZ123">Surplus Items List :</h2>
+				<table class="unique-table-XYZ123 table table-striped">
+					<thead>
+						<tr>
+							<th>Food Item</th>
+							<th>Quantity</th>
+							<th>Unit</th>
+							<th>Price</th>
+							<th>Expiry Date & Time</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Submitted items will be dynamically generated -->
+					</tbody>
+				</table>
+			</div>
+			<button type="button" class="btn btn-primary unique-send-email-button-XYZ123 mt-4">Send Email</button>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="emailSentModal" tabindex="-1" aria-labelledby="emailSentModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="emailSentModalLabel">Email Send</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<div id="loadingSpinner" class="spinner-border text-primary" role="status">
+						<span class="sr-only">Loading...</span>
+					</div>
+					<div id="emailSuccessMessage" class="d-none">
+						<div class="checkmark">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+								<circle cx="26" cy="26" r="25" fill="none" />
+								<path fill="none" d="M14.1 27.2l7.1 7.2L36.1 20.2" />
+							</svg>
+						</div>
+						<p>All the details and available data have been sent to all the registered emails of NGOs,
+							charities, and other buyers.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Footer Starts here. -->
+	<footer class="footer-area">
+		<div class="footer-widget-wrap" style="background-color: rgb(164, 55, 55);">
+			<div class="container">
+				<div class="row section-gap">
+					<div class="col-lg-4  col-md-6 col-sm-6">
+						<div class="single-footer-widget">
+							<h4>Calling Hours</h4>
+							<ul class="hr-list">
+								<li class="d-flex justify-content-between">
+									<span>Monday - Friday</span> <span>08:00 am - 10:00 pm</span>
+								</li>
+								<li class="d-flex justify-content-between">
+									<span>Saturday</span> <span>10:00 am - 08:00 pm</span>
+								</li>
+								<li class="d-flex justify-content-between">
+									<span>Sunday</span> <span>Contact Physically</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-4  col-md-6 col-sm-6">
+						<div class="single-footer-widget">
+							<h4>Contact Us</h4>
+							<p>
+								Ayodhya Bypass Rd, Opposite, K-Sector, Minal Residency, Bhopal, Madhya Pradesh 462041
+							</p>
+							<p class="number">
+								077730 08592 <br>
+								077730 08591
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-4  col-md-6 col-sm-6">
+						<div class="single-footer-widget">
+							<h4>Send Your Email</h4>
+							<p>You can trust us. we only send promo offers, not a single spam.</p>
+							<div class="d-flex flex-row" id="mc_embed_signup">
+
+
+								<form class="navbar-form"
+									action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+									method="get">
+									<div class="input-group add-on align-items-center d-flex">
+										<input class="form-control" name="EMAIL" placeholder="Your Email address"
+											onfocus="this.placeholder = ''"
+											onblur="this.placeholder = 'Your Email address'" required="" type="email">
+										<div style="position: absolute; left: -5000px;">
+											<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+												type="text">
+										</div>
+										<div class="input-group-btn">
+											<button class="genric-btn"><span
+													class="lnr lnr-arrow-right"></span></button>
+										</div>
+									</div>
+									<div class="info mt-20"></div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom-wrap">
+			<div class="container">
+				<div class="row footer-bottom d-flex justify-content-between align-items-center">
+					<p class="col-lg-8 col-mdcol-sm-6 -6 footer-text m-0">
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i
+							class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">Developers</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+					<ul class="col-lg-4 col-mdcol-sm-6 -6 social-icons text-right">
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="#"><i class="fa fa-github"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer Area -->
+
+	<script src="{{ url_for('static', filename='js/vendor/jquery-2.2.4.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/easing.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/hoverIntent.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/superfish.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.nice-select.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/mail-script.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/surplus.js') }}"></script>
+
+
+</body>
+
+</html>
