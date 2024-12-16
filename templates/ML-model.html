@@ -52,7 +52,7 @@
 					<ul class="nav-menu">
 						<li><a href="{{ url_for('index') }}">Home</a></li>
 						<li><a href="{{ url_for('about') }}">About</a></li>
-						<li><a href="{{ url_for('ml_model') }}">ML Model</a></li>
+						<li><a href="{{ url_for('ml_model') }}">Quantity Planner</a></li>
 						<li><a href="{{ url_for('surplus_management') }}">Surplus Management</a></li>
 						<li><a href="{{ url_for('help') }}">Help</a></li>
 						<li class="menu-has-children"><a href="">Profile</a>
@@ -75,10 +75,10 @@
 			<div class="row d-flex align-items-center justify-content-center">
 				<div class="about-content col-lg-12">
 					<h1 class="text-white">
-						ML Model
+						Quantity Planner
 					</h1>
 					<p class="text-white link-nav"><a href="{{ url_for('index') }}">Home </a> <span
-							class="lnr lnr-arrow-right"></span> <a href="{{ url_for('ml_model') }}"> ML Model</a></p>
+							class="lnr lnr-arrow-right"></span> <a href="{{ url_for('ml_model') }}"> Quantity Planner</a></p>
 				</div>
 			</div>
 		</div>
@@ -89,8 +89,8 @@
 	<div class="surplus-management-main-container container mt-5 mb-5">
 		<!-- <div class="unique-surplus-management-container-XYZ123"> -->
 		<div class="container mt-5 mb-5 lg-4" style="max-width:800px;">
-			<h1 class="text-center mb-5">Predictive Modelling</h1>
-			<form id="predictionForm">
+			<h1 class="text-center mb-5 ">Predictive Modeling For Quantities of Menu Items</h1>
+			<form id="predictionForm" class="form-input-section">
 				<h3>Model 1: Diners Prediction</h3>
 				<div class="form-group">
 					<label>Event Duration (hours)</label>
@@ -166,9 +166,9 @@
 				<button type="submit" class="primary-btn">Predict</button>
 			</form>
 
-			<div id="results" style="display: none; margin-top: 20px;">
+			<div id="results" class="text-center" style="display: none; margin-top: 20px;">
 				<h3>Predicted Diners:</h3>
-				<p id="predictedDiners" class="highlighted-text mt-3"></p>
+				<p id="predictedDiners" class="highlighted-text mt-3" style="font-size: 24px;"></p>
 
 				<h3>Scaled Quantities</h3>
 				<table id="scaledQuantitiesTable" class="styled-table mt-3 mb-5">

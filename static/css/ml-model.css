@@ -13,7 +13,7 @@
 }
 
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: #ff2121;
     color: #ffffff;
     text-align: left;
 }
@@ -27,7 +27,7 @@
 }
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #ff2121;
 }
 
 /* Highlighted text for predicted diners */
@@ -56,7 +56,7 @@
 
 .ingredient-item strong {
     font-size: 16px;
-    color: #009879;
+    color: #ff2121;
 }
 
 .ingredient-item ul {
@@ -68,3 +68,4 @@
 .ingredient-item ul li {
     margin-bottom: 5px;
 }
+
