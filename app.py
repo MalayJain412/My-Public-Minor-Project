@@ -92,8 +92,8 @@ def scale_quantities(predicted_quantities, diners):
         base_quantity = base_quantities[item]
         unit = units[item]
         scaled_quantity = (fraction * base_quantity * diners) / 50  # Adjust for the number of diners
-        scaled_quantities[item] = f"{round(scaled_quantity, 2)} {unit}"
-        no_unit_qt[item]=round(scaled_quantity, 2)
+        scaled_quantities[item] = f"{int(scaled_quantity)} {unit}"
+        no_unit_qt[item]=int(scaled_quantity)
 
     return scaled_quantities,no_unit_qt
 
