@@ -66,7 +66,7 @@ def predict_diners(input_data):
     # Use the model to predict the number of diners
     predicted_diners = model1.predict(preprocessed_data)
 
-    return predicted_diners[0]  # Return the predicted number of diners
+    return int(predicted_diners[0])  # Return the predicted number of diners
 
 # Function to scale quantities
 def scale_quantities(predicted_quantities, diners):
@@ -92,8 +92,14 @@ def scale_quantities(predicted_quantities, diners):
         base_quantity = base_quantities[item]
         unit = units[item]
         scaled_quantity = (fraction * base_quantity * diners) / 50  # Adjust for the number of diners
-        scaled_quantities[item] = f"{int(scaled_quantity)} {unit}"
-        no_unit_qt[item]=int(scaled_quantity)
+        
+        if unit == 'plates':
+            scaled_quantity = int(scaled_quantity)  # Convert to integer for plates
+        else:
+            scaled_quantity = round(scaled_quantity, 2)  # Keep decimals for other units
+            
+        scaled_quantities[item] = f"{scaled_quantity} {unit}"
+        no_unit_qt[item] = scaled_quantity
 
     return scaled_quantities,no_unit_qt
 
