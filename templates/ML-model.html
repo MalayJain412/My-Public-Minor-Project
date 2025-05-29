@@ -2,36 +2,101 @@
 <html lang="zxx" class="no-js">
 
 <head>
-	<!-- Mobile Specific Meta -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Favicon-->
-	<link rel="shortcut icon" href="{{ url_for('static', filename='img/icon.png') }}">
-	<!-- Author Meta -->
-	<meta name="author" content="colorlib">
-	<!-- Meta Description -->
-	<meta name="description" content="">
-	<!-- Meta Keyword -->
-	<meta name="keywords" content="">
-	<!-- meta character set -->
-	<meta charset="UTF-8">
-	<!-- Site Title -->
-	<title>Morph</title>
+    <!-- Basic Page Needs -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>AI for Food Waste Reduction – Save That Gravy!</title>
+    <meta name="description" content="Explore how Save That Gravy! uses machine learning models to predict diner counts and optimize menu quantities, reducing food waste in catering and events.">
+    <meta name="author" content="Save That Gravy!">
+    <!-- <meta name="keywords" content="food waste AI, machine learning, predictive analytics, sustainability"> <!-- Keywords are largely ignored by Google/Bing -->
 
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-	<!--
-			CSS
-			============================================= -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/linearicons.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/ml-model.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/Surplus.css') }}">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/icon.png') }}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://morph-ai.onrender.com/ml-model" />
+
+    <!-- Open Graph Meta Tags (for Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="AI for Food Waste Reduction – Save That Gravy!" />
+    <meta property="og:description" content="Explore how Save That Gravy! uses machine learning models to predict diner counts and optimize menu quantities, reducing food waste in catering and events." />
+    <meta property="og:image" content="https://morph-ai.onrender.com/static/img/social-card.png" />
+    <meta property="og:url" content="https://morph-ai.onrender.com/ml-model" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI for Food Waste Reduction – Save That Gravy!" />
+    <meta name="twitter:description" content="Explore how Save That Gravy! uses machine learning to reduce food waste." />
+    <meta name="twitter:image" content="https://morph-ai.onrender.com/static/img/social-card.png" />
+    <!-- <meta name="twitter:site" content="@savethatgravy"> <!-- Optional: Your Twitter handle -->
+
+    <!-- Robots Meta Tag (Optional, as default is index, follow) -->
+    <meta name="robots" content="index, follow">
+
+    <!-- CSS Links -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/linearicons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ml-model.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Surplus.css') }}">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Save That Gravy!",
+      "url": "https://morph-ai.onrender.com/",
+      "logo": "https://morph-ai.onrender.com/static/img/logo.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/savethatgravy",
+        "https://twitter.com/savethatgravy" 
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@save-that-gravy.com",
+        "contactType": "Customer Support"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://morph-ai.onrender.com/",
+      "name": "Save That Gravy!",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://morph-ai.onrender.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "url": "https://morph-ai.onrender.com/ml-model",
+      "name": "AI for Food Waste Reduction – Save That Gravy!",
+      "description": "Explore how Save That Gravy! uses machine learning models to predict diner counts and optimize menu quantities, reducing food waste in catering and events.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://morph-ai.onrender.com/",
+        "name": "Save That Gravy!"
+      },
+      "specialty": "Machine Learning for Food Waste Reduction"
+    }
+    </script>
 </head>
 
 <body>
