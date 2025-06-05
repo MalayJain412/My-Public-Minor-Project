@@ -6,6 +6,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 import gzip
+import gc
 
 # Initialize Flask app
 app = Flask(__name__, static_folder='static', template_folder='templates')
@@ -22,6 +23,22 @@ with gzip.open(compressed_file_name2, 'rb') as file:
     model2 = pickle.load(file)
 
 
+# Replace global model loading with a function
+model1 = None
+model2 = None
+
+def load_models():
+    global model1, model2
+    if model1 is None:
+        with gzip.open('model1.pkl.gz', 'rb') as file:
+            model1 = pickle.load(file)
+    if model2 is None:
+        with gzip.open('model2.pkl.gz', 'rb') as file:
+            model2 = pickle.load(file)
+
+# Then call load_models() only when needed in your predict route
+
+
 # Function to convert 'Expected Diners Range' to numeric features (for model 1)
 def convert_range_to_features(range_str):
     if pd.isna(range_str) or range_str == '':
@@ -30,32 +47,28 @@ def convert_range_to_features(range_str):
     return lower, upper, upper - lower  # Return lower, upper, and range width
 
 # Function to preprocess custom input data for model 1
+# Modify preprocess_custom_data to be more memory efficient
 def preprocess_custom_data(input_data):
-    # Convert the input data to a DataFrame
-    input_df = pd.DataFrame([input_data])
-
-    # Encode 'Weekend' and 'Holiday' to numerical values (if not already done)
+    # Create DataFrame with only necessary columns
+    input_df = pd.DataFrame([input_data], copy=False)
+    
+    # Use inplace operations where possible
     input_df['Weekend'] = input_df['Weekend'].map({'Yes': 1, 'No': 0})
     input_df['Holiday'] = input_df['Holiday'].map({'Yes': 1, 'No': 0})
-
-    # Feature Engineering (same as during training)
+    
+    # Avoid creating unnecessary intermediate variables
     input_df['Event Duration Squared'] = input_df['Event Duration (hours)'] ** 2
-    input_df['Expected Diners Lower'], input_df['Expected Diners Upper'], input_df['Expected Diners Range Width'] = zip(
-        *input_df['Expected Diners Range'].apply(convert_range_to_features)
-    )
-
-    # Drop the 'Expected Diners Range' column
+    
+    # Process the range conversion more efficiently
+    range_features = input_df['Expected Diners Range'].apply(convert_range_to_features)
+    input_df['Expected Diners Lower'] = range_features.str[0]
+    input_df['Expected Diners Upper'] = range_features.str[1]
+    input_df['Expected Diners Range Width'] = range_features.str[2]
+    
+    # Drop columns in-place
     input_df.drop(columns=['Expected Diners Range'], inplace=True)
-
-    # Binning Event Duration
-    bins = [0, 5, 10, 15, 20]
-    labels = ['Short', 'Medium', 'Long', 'Very Long']
-    input_df['Event Duration Binned'] = pd.cut(input_df['Event Duration (hours)'], bins=bins, labels=labels)
-
-    # Frequency Encoding for Weather
-    weather_freq = input_df['Weather'].value_counts()
-    input_df['Weather_Frequency'] = input_df['Weather'].map(weather_freq)
-
+    
+    # Return only the columns needed for prediction
     return input_df
 
 # Function to handle prediction (preprocessing + prediction) for model 1
@@ -434,3 +447,35 @@ def pricing():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# Add at the top of your file
+import gc
+
+# Add this decorator to force garbage collection after each request
+@app.after_request
+def cleanup(response):
+    gc.collect()
+    return response
+
+# Add at the top of your file
+from functools import lru_cache
+
+# Cache prediction results
+@lru_cache(maxsize=128)
+def cached_predict_diners(event_duration, weekend, holiday, weather, expected_range):
+    input_data = {
+        'Event Duration (hours)': event_duration,
+        'Weekend': weekend,
+        'Holiday': holiday,
+        'Weather': weather,
+        'Expected Diners Range': expected_range
+    }
+    return predict_diners(input_data)
+
+# In your /predict route, optimize the response creation
+def optimize_results(results):
+    # Round numbers to reduce precision and memory
+    for ingredient, quantity in results['aggregated_ingredients'].items():
+        if isinstance(quantity, float):
+            results['aggregated_ingredients'][ingredient] = round(quantity, 2)
+    return results
